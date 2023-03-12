@@ -1,0 +1,34 @@
+This repository is inspired by [[https://github.com/aspeddro/tree-sitter-rescript-web-playground][aspeddro/tree-sitter-rescript-web-playground]]
+
+* Build the wasm
+The wasm file is built from [[https://github.com/tree-sitter/tree-sitter][tree-sitter]] and [[https://github.com/milisims/tree-sitter-org][milisims/tree-sitter-org]]
+
+#+begin_src bash
+# image: node:14
+npm install --save-dev tree-sitter-cli@0.19.5 # the latest version has some erros when building the wasm
+cd node_modules
+git clone https://github.com/milisims/tree-sitter-org
+cd tree-sitter-org/
+npm install
+cd ../../
+npx tree-sitter build-wasm node_modules/tree-sitter-org
+#+end_src
+
+the official =tree-sitter.wasm= has some problem with my newly build =tree-sitter-org.wasm=, so I built it again with
+
+#+begin_src bash
+# install emsdk
+git clone https://github.com/emscripten-core/emsdk.git
+cd emsdk/
+./emsdk install latest
+./emsdk install latest
+./emsdk activate latest
+source ./emsdk_env.sh
+
+# build tree-sitter
+cd ..
+git clone https://github.com/tree-sitter/tree-sitter.git
+cd tree-sitter
+./script/build-wasm
+# built wasm in the fold lib/binding_web/
+#+end_src
