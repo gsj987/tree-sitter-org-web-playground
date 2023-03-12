@@ -1,5 +1,7 @@
 This repository is inspired by [[https://github.com/aspeddro/tree-sitter-rescript-web-playground][aspeddro/tree-sitter-rescript-web-playground]]
 
+[[https://gsj987.github.io/tree-sitter-org-web-playground/][Playground]]
+
 * Build the wasm
 The wasm file is built from [[https://github.com/tree-sitter/tree-sitter][tree-sitter]] and [[https://github.com/milisims/tree-sitter-org][milisims/tree-sitter-org]]
 
